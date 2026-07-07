@@ -15,3 +15,9 @@ Installation:
 4. Create a bot via @BotFather, follow the instructions, and obtain the token.
 
 5. Paste the token into the `.env` file.
+
+# Commands
+
+/start - Greetings
+
+/dice - Rolls the die and gives the result

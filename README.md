@@ -10,7 +10,7 @@ Installation:
 
     pip install -r requirements.txt
 
-3. Copy `.env.example` to `.env`.
+3. Copy `default.env.example` to `.env`.
 
 4. Create a bot via @BotFather, follow the instructions, and obtain the token.
 

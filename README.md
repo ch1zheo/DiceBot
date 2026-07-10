@@ -50,71 +50,71 @@ DiceBot/
 
 2. Откройте PowerShell (или CMD) в папке проекта и создайте виртуальное окружение:
 
-   python -m venv venv
+   - python -m venv venv
 
-   venv\Scripts\activate
+   - venv\Scripts\activate
 
 3. Установите зависимости:
 
-   pip install -r requirements.txt
+   - pip install -r requirements.txt
 
 4. Создайте файл `.env`, скопируйте содержимое файла default.env.example в созданный файл.
 
 5. Откройте `.env` в блокноте и вставьте свой токен:
 
-   TELEGRAM_BOT_TOKEN=ваш_токен_сюда
+   - TELEGRAM_BOT_TOKEN=ваш_токен_сюда
 
 6. Запустите бота:
 
-   python DiceBot.py
+   - python DiceBot.py
 
 # Linux (Ubuntu/Debian Based)
 
 1. Установите Python и venv:
 
-   sudo apt update
+   - sudo apt update
 
-   sudo apt install python3 python3-venv python3-pip
+   - sudo apt install python3 python3-venv python3-pip
 
 2. Перейдите в папку проекта и создайте виртуальное окружение:
 
-   python3 -m venv venv
+   - python3 -m venv venv
 
-   source venv/bin/activate
+   - source venv/bin/activate
 
 3. Установите зависимости:
 
-   pip install -r requirements.txt
+   - pip install -r requirements.txt
 
 4. Создайте файл `.env`, скопируйте содержимое файла default.env.example в созданный файл.
 
 5. Запустите бота:
 
-   python DiceBot.py
+   - python DiceBot.py
 
 # macOS
 
 1. Установите Python, проще всего через [Homebrew](https://brew.sh):
 
-   brew install python
+   - brew install python
 
 2. Перейдите в папку проекта и создайте виртуальное окружение:
 
-   python3 -m venv venv
+   - python3 -m venv venv
 
-   source venv/bin/activate
+   - source venv/bin/activate
 
 3. Установите зависимости:
 
-   pip install -r requirements.txt
+   - pip install -r requirements.txt
 
 4. Создайте файл `.env`, скопируйте содержимое файла default.env.example в созданный файл.
 
 5. Запустите бота:
 
-   python DiceBot.py
+   - python DiceBot.py
 
-Проверка работы
+- Проверка работы
 
 1. Найдите своего бота в Telegram по имени, которое вы задали в BotFather
 
@@ -122,7 +122,7 @@ DiceBot/
 
 3. Отправьте `/dice` - бот кинет кубик, подождёт 4 секунды и напишет выпавшее число
 
-Остановка бота
+- Остановка бота
 
 Нажмите `Ctrl + C` в терминале, где запущен `DiceBot.py`.
 

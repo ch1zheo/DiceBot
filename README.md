@@ -1,8 +1,12 @@
 # DiceBot
 
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ch1zheo/DiceBot/graphs/commit-activity)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Простой Telegram-бот на **aiogram 3.x**, который бросает игральную кость и через 4 секунды (пока играет анимация в Telegram) присылает результат текстом.
 
-# Что делает бот
+## Что делает бот
 
 - `/start` - приветственное сообщение
 
@@ -10,17 +14,17 @@
 
 - Также, `ReplyKeyboard` кнопка команды /dice
 
-# Требования
+## Требования
 
 - Python 3.10+
 
 - Токен Telegram-бота от [@BotFather](https://t.me/BotFather)
 
-# Структура проекта
+## Структура проекта
 
 DiceBot/
 
-├── DiceBot.py
+├── main.py
 
 ├── requirements.txt
 
@@ -30,7 +34,7 @@ DiceBot/
 
 └── README.md
 
-# Установка
+## Установка
 
 1. Получение токена бота
 
@@ -42,7 +46,7 @@ DiceBot/
 
 Внимание! Перед запуском не забудьте открыть терминал в папке проекта и активировать окружение (venv\Scripts\activate для Windows, source /venv/bin/activate для Linux, macOS)
 
-# Windows
+### Windows
 
 1. Установите Python:
 
@@ -52,13 +56,16 @@ DiceBot/
 
 2. Откройте PowerShell (или CMD) в папке проекта и создайте виртуальное окружение:
 
-   - python -m venv venv
+   ```powershell
+   python -m venv venv
+   venv\Scripts\activate
+   ```
 
-   - venv\Scripts\activate
+3. Установите зависимости:  
 
-3. Установите зависимости:
-
-   - pip install -r requirements.txt
+   ```powershell
+   pip install -r requirements.txt
+   ```
 
 4. Создайте файл `.env`, скопируйте содержимое файла default.env.example в созданный файл.
 
@@ -68,55 +75,70 @@ DiceBot/
 
 6. Запустите бота:
 
-   - python main.py
+   ```powershell
+   python main.py
+   ```
 
-# Linux (Ubuntu/Debian Based)
+### Linux (Ubuntu/Debian Based)
 
 1. Установите Python и venv:
 
-   - sudo apt update
-
-   - sudo apt install python3 python3-venv python3-pip
+   ```bash
+   sudo apt update
+   sudo apt install python3 python3-venv python3-pip
+   ```
 
 2. Перейдите в папку проекта и создайте виртуальное окружение:
 
-   - python3 -m venv venv
-
-   - source venv/bin/activate
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 
 3. Установите зависимости:
 
-   - pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 4. Создайте файл `.env`, скопируйте содержимое файла default.env.example в созданный файл.
 
 5. Запустите бота:
 
-   - python main.py
+   ```bash
+   python3 main.py
+   ```
 
-# macOS
+### macOS
 
 1. Установите Python, проще всего через [Homebrew](https://brew.sh):
 
-   - brew install python
+   ```bash
+   brew install python
+   ```
 
 2. Перейдите в папку проекта и создайте виртуальное окружение:
 
-   - python3 -m venv venv
-
-   - source venv/bin/activate
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 
 3. Установите зависимости:
 
-   - pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 4. Создайте файл `.env`, скопируйте содержимое файла default.env.example в созданный файл.
 
 5. Запустите бота:
 
-   - python main.py
+   ```bash
+   python main.py
+   ```
 
-- Проверка работы
+## Проверка работы
 
 1. Найдите своего бота в Telegram по имени, которое вы задали в BotFather
 
@@ -128,22 +150,20 @@ DiceBot/
 
 Нажмите `Ctrl + C` в терминале, где запущен `main.py`.
 
-# Возможные проблемы
+## Возможные проблемы
 
-- **`ERROR: TELEGRAM_BOT_TOKEN is not set`** - токен не найден. Проверьте, что файл `.env` лежит в той же папке, что и `DiceBot.py`, и что переменная называется именно `TELEGRAM_BOT_TOKEN`.
+- **`ERROR: TELEGRAM_BOT_TOKEN is not set`** - токен не найден. Проверьте, что файл `.env` лежит в той же папке, что и `main.py`, и что переменная называется именно `TELEGRAM_BOT_TOKEN`.
 
 - **`ModuleNotFoundError: No module named 'aiogram'`** - виртуальное окружение не активировано или зависимости не установлены. Повторите шаги активации `venv` и `pip install -r requirements.txt`.
 
 - **Бот не отвечает** - убедитесь, что скрипт запущен и в терминале нет ошибок; проверьте, что токен скопирован полностью, без лишних пробелов.
 
-# Что изменилось в V2.1
-
-1. Добавлена ReplyKeyboard-кнопка с командой **`/dice`**
-
-# Важная информация
+## Важная информация
 
 Если вы нашли баг, спокойно фиксите, но обязательно скажите о баге автору!
 
-MIT License - используйте как хотите но указывайте автора.
+## 📜 Лицензия
 
-Автор - Ch1zheo
+Этот проект распространяется под лицензией MIT. Подробности смотрите в файле [LICENSE](LICENSE).
+
+Автор: Ch1zheo

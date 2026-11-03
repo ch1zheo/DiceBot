@@ -10,6 +10,8 @@ from aiogram.types import Message
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from dotenv import load_dotenv
 
+from locales import DICE_BUTTON_TEXTS, get_text
+
 load_dotenv()
 
 logging.basicConfig(
@@ -24,42 +26,51 @@ DICE_ANIMATION_SECONDS = 4
 
 dp = Dispatcher()
 
-DICE_BUTTON_TEXT = "Нажми чтобы бросить кубик! 🎲"
 
-main_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text=DICE_BUTTON_TEXT)],
-    ],
-    resize_keyboard=True,
-)
+def main_keyboard(language_code: str | None) -> ReplyKeyboardMarkup:
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text=get_text(language_code, "dice_button"))],
+        ],
+        resize_keyboard=True,
+    )
+
 
 @dp.message(CommandStart())
 async def start_command(message: Message) -> None:
+    language_code = message.from_user.language_code if message.from_user else None
     await message.answer(
-        "Привет! Я DiceBot 🎲\n"
-        "Нажмите кнопку ниже или введите /dice, чтобы бросить кубик!",
-        reply_markup=main_keyboard,
+        get_text(language_code, "start"),
+        reply_markup=main_keyboard(language_code),
     )
 
+
 async def roll_dice(message: Message) -> None:
+    language_code = message.from_user.language_code if message.from_user else None
     dice_message = await message.answer_dice(emoji="🎲")
     value = dice_message.dice.value
 
     await asyncio.sleep(DICE_ANIMATION_SECONDS)
-    await message.answer(f"Вам выпало {value}!", reply_markup=main_keyboard)
+    await message.answer(
+        get_text(language_code, "dice_result", value=value),
+        reply_markup=main_keyboard(language_code),
+    )
+
 
 @dp.message(Command("dice"))
 async def dice_command(message: Message) -> None:
     await roll_dice(message)
 
-@dp.message(F.text == DICE_BUTTON_TEXT)
+
+@dp.message(F.text.in_(DICE_BUTTON_TEXTS))
 async def dice_button(message: Message) -> None:
     await roll_dice(message)
+
 
 async def main() -> None:
     if not TELEGRAM_BOT_TOKEN:
         raise SystemExit(
-            "Ошибка: не найден TELEGRAM_BOT_TOKEN (смотрите default.env.example)"
+            "Ошибка: не найден TELEGRAM_BOT_TOKEN (смотрите .env.example)"
         )
 
     bot = Bot(
@@ -69,6 +80,7 @@ async def main() -> None:
 
     logger.info("DiceBot запущен, жду команды...")
     await dp.start_polling(bot)
+
 
 if __name__ == "__main__":
     asyncio.run(main())
